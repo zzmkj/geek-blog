@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/dist/modules/bootstrap/css/bootstrap.min.css" th:href="@{/dist/modules/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="../static/dist/modules/fontawesome/css/all.min.css" th:href="@{/dist/modules/fontawesome/css/all.min.css}">
+    <link rel="stylesheet" href="../static/dist/css/style.css" th:href="@{/dist/css/style.css}">
+    <link rel="stylesheet" href="../static/dist/css/components.css" th:href="@{/dist/css/components.css}">
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
+    <style>
+        .dataTables_info{
+            padding-top: 0.85em;
+            white-space: nowrap;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="main-wrapper">
+        <div class="navbar-bg"></div>
+        <nav class="navbar navbar-expand-lg main-navbar">
+            <form class="form-inline mr-auto">
+                <ul class="navbar-nav mr-3">
+                    <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a>
+                    </li>
+                    <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i
+                            class="fas fa-search"></i></a></li>
+                </ul>
+                <div class="search-element">
+                    <input class="form-control" type="search" placeholder="搜索" aria-label="Search" data-width="250">
+                    <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+                    <div class="search-backdrop"></div>
+                    <div class="search-result">
+                        <div class="search-item">
+                            <a href="#">
+                                <img class="mr-3 rounded" width="30" src="../static/dist/img/products/product-3-50.png"
+                                     th:src="@{/dist/img/products/product-3-50.png}" alt="product">
+                                产品管理
+                            </a>
+                        </div>
+                        <div class="search-item">
+                            <a href="#">
+                                <img class="mr-3 rounded" width="30" src="../static/dist/img/products/product-2-50.png"
+                                     th:src="@{/dist/img/products/product-2-50.png}" alt="product">
+                                计划管理
+                            </a>
+                        </div>
+                        <div class="search-item">
+                            <a href="#">
+                                <img class="mr-3 rounded" width="30" src="../static/dist/img/products/product-1-50.png"
+                                     th:src="@{/dist/img/products/product-1-50.png}" alt="product">
+                                任务管理
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <ul class="navbar-nav navbar-right">
+                <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+                                                             class="nav-link nav-link-lg message-toggle beep"><i
+                        class="far fa-envelope"></i></a>
+                    <div class="dropdown-menu dropdown-list dropdown-menu-right">
+                        <div class="dropdown-header">新消息
+                            <div class="float-right">
+                                <a href="#">前往查看所有</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-list-content dropdown-list-message">
+                            <a href="#" class="dropdown-item dropdown-item-unread">
+                                <div class="dropdown-item-avatar">
+                                    <img alt="image" src="../static/dist/img/avatar/avatar-1.png"
+                                         th:src="@{/dist/img/avatar/avatar-1.png}" class="rounded-circle">
+                                    <div class="is-online"></div>
+                                </div>
+                                <div class="dropdown-item-desc">
+                                    <b>郑智明</b>
+                                    <p>你好！！！</p>
+                                    <div class="time">10 Hours Ago</div>
+                                </div>
+                            </a>
+
+                            <a href="#" class="dropdown-item dropdown-item-unread">
+                                <div class="dropdown-item-avatar">
+                                    <img alt="image" src="../static/dist/img/avatar/avatar-1.png"
+                                         th:src="@{/dist/img/avatar/avatar-1.png}" class="rounded-circle">
+                                    <div class="is-online"></div>
+                                </div>
+                                <div class="dropdown-item-desc">
+                                    <b>郑智明</b>
+                                    <p>你好！！！</p>
+                                    <div class="time">10 Hours Ago</div>
+                                </div>
+                            </a>
+
+                            <a href="#" class="dropdown-item dropdown-item-unread">
+                                <div class="dropdown-item-avatar">
+                                    <img alt="image" src="../static/dist/img/avatar/avatar-1.png"
+                                         th:src="@{/dist/img/avatar/avatar-1.png}" class="rounded-circle">
+                                    <div class="is-online"></div>
+                                </div>
+                                <div class="dropdown-item-desc">
+                                    <b>郑智明</b>
+                                    <p>你好！！！</p>
+                                    <div class="time">10 Hours Ago</div>
+                                </div>
+                            </a>
+
+                            <a href="#" class="dropdown-item dropdown-item-unread">
+                                <div class="dropdown-item-avatar">
+                                    <img alt="image" src="../static/dist/img/avatar/avatar-1.png"
+                                         th:src="@{/dist/img/avatar/avatar-1.png}" class="rounded-circle">
+                                    <div class="is-online"></div>
+                                </div>
+                                <div class="dropdown-item-desc">
+                                    <b>郑智明</b>
+                                    <p>你好！！！</p>
+                                    <div class="time">10 Hours Ago</div>
+                                </div>
+                            </a>
+
+                            <a href="#" class="dropdown-item dropdown-item-unread">
+                                <div class="dropdown-item-avatar">
+                                    <img alt="image" src="../static/dist/img/avatar/avatar-1.png"
+                                         th:src="@{/dist/img/avatar/avatar-1.png}" class="rounded-circle">
+                                    <div class="is-online"></div>
+                                </div>
+                                <div class="dropdown-item-desc">
+                                    <b>郑智明</b>
+                                    <p>你好！！！</p>
+                                    <div class="time">10 Hours Ago</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="dropdown-footer text-center">
+                            <a href="#">查看所有 <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+                                                             class="nav-link notification-toggle nav-link-lg beep"><i
+                        class="far fa-bell"></i></a>
+                    <div class="dropdown-menu dropdown-list dropdown-menu-right">
+                        <div class="dropdown-header">新订单提醒
+                            <div class="float-right">
+                                <a href="#">前往查看所有</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-list-content dropdown-list-icons">
+
+                        </div>
+                        <div class="dropdown-footer text-center">
+                            <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown"><a href="#" data-toggle="dropdown"
+                                        class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                    <img alt="image" src="../static/dist/img/avatar/avatar-1.png" th:src="@{/dist/img/avatar/avatar-1.png}"
+                         class="rounded-circle mr-1">
+                    <div class="d-sm-none d-lg-inline-block" th:text="${sessuser?.name}">郑智明</div>
+                </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <div class="dropdown-title">上一次在<span th:if="!${#lists.isEmpty(sessuser?.history)}" th:text="${sessuser?.history.get(sessuser?.history?.size()-1)}">5分钟前</span>登录</div>
+                        <a href="#" class="dropdown-item has-icon">
+                            <i class="far fa-user"></i> 个人信息
+                        </a>
+                        <a href="#" class="dropdown-item has-icon">
+                            <i class="fas fa-bolt"></i> 活动
+                        </a>
+                        <a href="#" class="dropdown-item has-icon">
+                            <i class="fas fa-cog"></i> 设置
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a th:href="@{/logout}" href="#" class="dropdown-item has-icon text-danger">
+                            <i class="fas fa-sign-out-alt"></i> 注销
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="main-sidebar sidebar-style-2">
+            <aside id="sidebar-wrapper">
+                <div class="sidebar-brand">
+                    <a href="#">小公司</a>
+                </div>
+                <div class="sidebar-brand sidebar-brand-sm">
+                    <a href="#">Hj</a>
+                </div>
+                <ul class="sidebar-menu">
+                    <li class="menu-header">系统中心</li>
+                    <li class="dropdown active">
+                        <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>系统</span></a>
+                        <ul class="dropdown-menu">
+                            <li class="active"><a class="nav-link"  href="bootstrap-alert.html">分类中心</a></li>
+                            <li><a class="nav-link"  href="bootstrap-alert.html">文章管理</a></li>
+                        </ul>
+                    </li>
+
+
+
+                </ul>
+            </aside>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <section class="section">
+                <div class="section-header">
+                    <h1>管理</h1>
+                    <div class="section-header-breadcrumb">
+                        <div class="breadcrumb-item"><a href="#" >管理</a></div>
+                        <div class="breadcrumb-item">管理</div>
+                    </div>
+                </div>
+
+                <div class="section-body">
+                    <h2 class="section-title">信息</h2>
+                    <!--<p class="section-lead">请慎重修改用户角色！</p>-->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>
+                                        <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-category">添加</button>
+                                    </h4>
+                                    <div class="card-header-form">
+                                        <form method="get" action="/plan/all">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="搜索" name="keyword">
+                                                <div class="input-group-btn">
+                                                    <button class="btn btn-primary" type="submit">
+                                                        <i class="fas fa-search"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="card-body p-0">
+                                    <!--<div class="table-responsive">-->
+                                        <div id="jstree">
+                                        </div>
+                                    <!--</div>-->
+                                </div>
+                                <div class="card-footer text-right">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-5 text-left">
+                                            <div class="dataTables_info" id="table-2_info" role="status" aria-live="polite">当前页 1/2 共 2 页</div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-7">
+                                            <nav class="d-inline-block">
+                                                <ul class="pagination mb-0">
+                                                    <li class="page-item disabled" >
+                                                        <a class="page-link" href="#" tabindex="-1" >
+                                                            <i class="fas fa-chevron-left"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="#">1</a>
+                                                    </li>
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="#">
+                                                            <i class="fas fa-chevron-right"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+
+ <div class="modal fade" tabindex="-1" role="dialog" id="exampleModal-category">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">分类添加</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="needs-validation" novalidate="" method="post" th:action="@{/plan/update}" id="category-form">
+                <input type="hidden" name="id" id="id">
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label>上一级</label>
+                        <div class="input-group">
+                            <input type="hidden" class="form-control" placeholder="上一级" value="0" name="parentId" readonly>
+                            <input type="text" class="form-control" placeholder="上一级" id="parentText" readonly>
+                            <div class="invalid-feedback" id="parentId">
+                                请填写上一级
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>名称</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="名称" name="text" required>
+                            <div class="invalid-feedback" id="text">
+                                请填写名称
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="modal-footer bg-whitesmoke br">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary" data-category="submit">添加</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="../static/dist/modules/jquery.min.js" th:src="@{/dist/modules/jquery.min.js}"></script>
+<script src="../static/dist/modules/popper.js" th:src="@{/dist/modules/popper.js}"></script>
+<script src="../static/dist/modules/tooltip.js" th:src="@{/dist/modules/tooltip.js}"></script>
+<script src="../static/dist/modules/bootstrap/js/bootstrap.min.js" th:src="@{/dist/modules/bootstrap/js/bootstrap.min.js}"></script>
+<script src="../static/dist/modules/nicescroll/jquery.nicescroll.min.js" th:src="@{/dist/modules/nicescroll/jquery.nicescroll.min.js}"></script>
+<script src="../static/dist/modules/moment.min.js" th:src="@{/dist/modules/moment.min.js}"></script>
+<script src="../static/dist/js/stisla.js" th:src="@{/dist/js/stisla.js}"></script>
+<script src="../static/dist/js/scripts.js" th:src="@{/dist/js/scripts.js}"></script>
+<script src="../static/dist/js/custom.js" th:src="@{/dist/js/custom.js}"></script>
+<script src="../static/dist/js/page/bootstrap-modal.js" th:src="@{/dist/js/page/bootstrap-modal.js}"></script>
+<script src="../static/dist/modules/upload-preview/assets/js/jquery.uploadPreview.min.js" th:src="@{/dist/modules/upload-preview/assets/js/jquery.uploadPreview.min.js}"></script>
+<script src="../static/dist/modules/sweetalert/sweetalert.min.js" th:src="@{/dist/modules/sweetalert/sweetalert.min.js}"></script>
+<script src="../static/js/jstree.min.js" th:src="@{/js/jstree.min.js}"></script>
+<script>
+
+</script>
+<script th:inline="javascript">
+
+    $('#jstree').jstree({
+        "plugins": ["contextmenu", "themes", "ui", "types"],
+        'core': {
+            "check_callback": true,
+            "themes": {
+                "icons": false
+            },
+            "data": DataLoader
+        },
+        "contextmenu": {
+            "items": {
+                "create_2": {
+                    "label": "添加分类",
+                    "action": function (obj) {
+                        $("#exampleModal-category").modal("show");
+                        $("#category-form").find("input[name=parentId]").val(obj.reference[0].id);
+                        $("#parentText").val(obj.reference[0].text);
+                    }
+                },
+                "create": {
+                    "label": "删除分类",
+                    "action": function (obj) {
+                        swal(deleteAlert).then(willDelete => {
+                            if (willDelete) {
+                                let id = obj.reference[0].id;
+                                $.get("/category/"+id+"/delete", function () {
+                                    console.log("delete success...");
+                                    swal("噗！你的文件已被删除!", {
+                                        icon: "success",
+                                    });
+                                    setTimeout(function () {
+                                        window.location.reload();
+                                    }, 1000);
+                                });
+
+                            } else {
+                                swal("取消操作!");
+                            }
+                        });
+                    }
+                }
+            }
+        }
+    });
+
+
+    function DataLoader(node, render) {
+        if (node.id === '#') { // 对于根节点来说，加载一级的地区目录
+            render(/*[[${categoryList}]]*/[
+                { "id": "110000", "text": "\u5317\u4EAC\u5E02\u5317\u4EAC\u5E02\u670D\u52A1\u70B9", "parentId": "0", "children": true, "name": "\u5317\u4EAC\u5E02\u670D\u52A1\u70B9", "status": null },
+                    { "id": "120000", "text": "\u5929\u6D25\u5E02", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "130000", "text": "\u6CB3\u5317\u7701", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "140000", "text": "\u5C71\u897F\u7701", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "150000", "text": "\u5185\u8499\u53E4\u81EA\u6CBB\u533A", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "210000", "text": "\u8FBD\u5B81\u7701", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "220000", "text": "\u5409\u6797\u7701", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "230000", "text": "\u9ED1\u9F99\u6C5F\u7701", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "310000", "text": "\u4E0A\u6D77\u5E02", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "320000", "text": "\u6C5F\u82CF\u7701", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "330000", "text": "\u6D59\u6C5F\u7701", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "340000", "text": "\u5B89\u5FBD\u7701", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "350000", "text": "\u798F\u5EFA\u7701", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "360000", "text": "\u6C5F\u897F\u7701", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "370000", "text": "\u5C71\u4E1C\u7701", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "410000", "text": "\u6CB3\u5357\u7701", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "420000", "text": "\u6E56\u5317\u7701", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "430000", "text": "\u6E56\u5357\u7701", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "440000", "text": "\u5E7F\u4E1C\u7701", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "450000", "text": "\u5E7F\u897F\u58EE\u65CF\u81EA\u6CBB\u533A", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "460000", "text": "\u6D77\u5357\u7701", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "500000", "text": "\u91CD\u5E86\u5E02", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "510000", "text": "\u56DB\u5DDD\u7701", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "520000", "text": "\u8D35\u5DDE\u7701", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "530000", "text": "\u4E91\u5357\u7701", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "540000", "text": "\u897F\u85CF\u81EA\u6CBB\u533A", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "610000", "text": "\u9655\u897F\u7701", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "620000", "text": "\u7518\u8083\u7701", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "630000", "text": "\u9752\u6D77\u7701", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "640000", "text": "\u5B81\u590F\u56DE\u65CF\u81EA\u6CBB\u533A", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "650000", "text": "\u65B0\u7586\u7EF4\u543E\u5C14\u81EA\u6CBB\u533A", "parentId": "0", "children": true, "name": null, "status": null },
+                    { "id": "710000", "text": "\u53F0\u6E7E\u7701", "parentId": "0", "children": false, "name": null, "status": null },
+                    { "id": "810000", "text": "\u9999\u6E2F\u7279\u522B\u884C\u653F\u533A", "parentId": "0", "children": false, "name": null, "status": null },
+                    { "id": "820000", "text": "\u6FB3\u95E8\u7279\u522B\u884C\u653F\u533A", "parentId": "0", "children": false, "name": null, "status": null }])
+        } else {  //判断依据可以用户自定义
+            $.get("/category/" + node.id + "/children", function (resp) {
+                render(resp);
+            });
+        }
+    }
+
+</script>
+
+<script src="../static/js/ajax.js" th:src="@{/js/ajax.js}"></script>
+<script src="../static/js/api.js" th:src="@{/js/api.js}"></script>
+<script src="../static/js/category.js" th:src="@{/js/category.js}"></script>
+
+</html>
