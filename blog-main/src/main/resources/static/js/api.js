@@ -4,9 +4,11 @@ const api = {
     category_add(data) {
         let url = "/category";
         return ajax(url, "POST", data, true);
-    }
+    },
 
-}
+
+
+};
 
 
 const deleteAlert = {

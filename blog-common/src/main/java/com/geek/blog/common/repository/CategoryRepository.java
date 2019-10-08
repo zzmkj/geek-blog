@@ -14,4 +14,6 @@ import java.util.List;
  */
 public interface CategoryRepository extends JpaRepository<Category, String> {
     List<Category> findByParentId(String parentId);
+
+    List<Category> findByParentIdIn(List<String> ids);
 }
