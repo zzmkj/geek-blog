@@ -63,12 +63,15 @@ public class CategoryService {
         Category category = findById(id);
         categoryRepository.deleteById(id);
         //判断删除后，父节点是否还有子节点，如果没有，则设置children属性为false
-        List<Category> parentCategorys = findByParentId(category.getParentId());
-        if (CollectionUtils.isEmpty(parentCategorys)) {
-            Category parentCategory = findById(category.getParentId());
-            parentCategory.setChildren(false);
-            categoryRepository.save(parentCategory);
+        if (!StringUtils.equals(category.getParentId(), "0")) {
+            List<Category> parentCategorys = findByParentId(category.getParentId());
+            if (CollectionUtils.isEmpty(parentCategorys)) {
+                Category parentCategory = findById(category.getParentId());
+                parentCategory.setChildren(false);
+                categoryRepository.save(parentCategory);
+            }
         }
+
 
         //删除当前节点下的所有子节点（包括子子节点...）
         //1. 创建一个分类id集合，并把当前分类的id作为初始元素
