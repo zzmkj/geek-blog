@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/dist/modules/bootstrap/css/bootstrap.min.css" th:href="@{/dist/modules/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="../static/dist/modules/fontawesome/css/all.min.css" th:href="@{/dist/modules/fontawesome/css/all.min.css}">
+    <link rel="stylesheet" href="../static/dist/css/style.css" th:href="@{/dist/css/style.css}">
+    <link rel="stylesheet" href="../static/dist/css/components.css" th:href="@{/dist/css/components.css}">
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
+    <style>
+        .dataTables_info{
+            padding-top: 0.85em;
+            white-space: nowrap;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="main-wrapper">
+        <div class="navbar-bg"></div>
+        <nav class="navbar navbar-expand-lg main-navbar">
+            <form class="form-inline mr-auto">
+                <ul class="navbar-nav mr-3">
+                    <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a>
+                    </li>
+                    <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i
+                            class="fas fa-search"></i></a></li>
+                </ul>
+                <div class="search-element">
+                    <input class="form-control" type="search" placeholder="搜索" aria-label="Search" data-width="250">
+                    <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+                    <div class="search-backdrop"></div>
+                    <div class="search-result">
+                        <div class="search-item">
+                            <a href="#">
+                                <img class="mr-3 rounded" width="30" src="../static/dist/img/products/product-3-50.png"
+                                     th:src="@{/dist/img/products/product-3-50.png}" alt="product">
+                                产品管理
+                            </a>
+                        </div>
+                        <div class="search-item">
+                            <a href="#">
+                                <img class="mr-3 rounded" width="30" src="../static/dist/img/products/product-2-50.png"
+                                     th:src="@{/dist/img/products/product-2-50.png}" alt="product">
+                                计划管理
+                            </a>
+                        </div>
+                        <div class="search-item">
+                            <a href="#">
+                                <img class="mr-3 rounded" width="30" src="../static/dist/img/products/product-1-50.png"
+                                     th:src="@{/dist/img/products/product-1-50.png}" alt="product">
+                                任务管理
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <ul class="navbar-nav navbar-right">
+                <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+                                                             class="nav-link nav-link-lg message-toggle beep"><i
+                        class="far fa-envelope"></i></a>
+                    <div class="dropdown-menu dropdown-list dropdown-menu-right">
+                        <div class="dropdown-header">新消息
+                            <div class="float-right">
+                                <a href="#">前往查看所有</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-list-content dropdown-list-message">
+                            <a href="#" class="dropdown-item dropdown-item-unread">
+                                <div class="dropdown-item-avatar">
+                                    <img alt="image" src="../static/dist/img/avatar/avatar-1.png"
+                                         th:src="@{/dist/img/avatar/avatar-1.png}" class="rounded-circle">
+                                    <div class="is-online"></div>
+                                </div>
+                                <div class="dropdown-item-desc">
+                                    <b>郑智明</b>
+                                    <p>你好！！！</p>
+                                    <div class="time">10 Hours Ago</div>
+                                </div>
+                            </a>
+
+                            <a href="#" class="dropdown-item dropdown-item-unread">
+                                <div class="dropdown-item-avatar">
+                                    <img alt="image" src="../static/dist/img/avatar/avatar-1.png"
+                                         th:src="@{/dist/img/avatar/avatar-1.png}" class="rounded-circle">
+                                    <div class="is-online"></div>
+                                </div>
+                                <div class="dropdown-item-desc">
+                                    <b>郑智明</b>
+                                    <p>你好！！！</p>
+                                    <div class="time">10 Hours Ago</div>
+                                </div>
+                            </a>
+
+                            <a href="#" class="dropdown-item dropdown-item-unread">
+                                <div class="dropdown-item-avatar">
+                                    <img alt="image" src="../static/dist/img/avatar/avatar-1.png"
+                                         th:src="@{/dist/img/avatar/avatar-1.png}" class="rounded-circle">
+                                    <div class="is-online"></div>
+                                </div>
+                                <div class="dropdown-item-desc">
+                                    <b>郑智明</b>
+                                    <p>你好！！！</p>
+                                    <div class="time">10 Hours Ago</div>
+                                </div>
+                            </a>
+
+                            <a href="#" class="dropdown-item dropdown-item-unread">
+                                <div class="dropdown-item-avatar">
+                                    <img alt="image" src="../static/dist/img/avatar/avatar-1.png"
+                                         th:src="@{/dist/img/avatar/avatar-1.png}" class="rounded-circle">
+                                    <div class="is-online"></div>
+                                </div>
+                                <div class="dropdown-item-desc">
+                                    <b>郑智明</b>
+                                    <p>你好！！！</p>
+                                    <div class="time">10 Hours Ago</div>
+                                </div>
+                            </a>
+
+                            <a href="#" class="dropdown-item dropdown-item-unread">
+                                <div class="dropdown-item-avatar">
+                                    <img alt="image" src="../static/dist/img/avatar/avatar-1.png"
+                                         th:src="@{/dist/img/avatar/avatar-1.png}" class="rounded-circle">
+                                    <div class="is-online"></div>
+                                </div>
+                                <div class="dropdown-item-desc">
+                                    <b>郑智明</b>
+                                    <p>你好！！！</p>
+                                    <div class="time">10 Hours Ago</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="dropdown-footer text-center">
+                            <a href="#">查看所有 <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+                                                             class="nav-link notification-toggle nav-link-lg beep"><i
+                        class="far fa-bell"></i></a>
+                    <div class="dropdown-menu dropdown-list dropdown-menu-right">
+                        <div class="dropdown-header">新订单提醒
+                            <div class="float-right">
+                                <a href="#">前往查看所有</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-list-content dropdown-list-icons">
+
+                        </div>
+                        <div class="dropdown-footer text-center">
+                            <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown"><a href="#" data-toggle="dropdown"
+                                        class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                    <img alt="image" src="../static/dist/img/avatar/avatar-1.png" th:src="@{/dist/img/avatar/avatar-1.png}"
+                         class="rounded-circle mr-1">
+                    <div class="d-sm-none d-lg-inline-block" th:text="${sessuser?.name}">郑智明</div>
+                </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <div class="dropdown-title">上一次在<span th:if="!${#lists.isEmpty(sessuser?.history)}" th:text="${sessuser?.history.get(sessuser?.history?.size()-1)}">5分钟前</span>登录</div>
+                        <a href="#" class="dropdown-item has-icon">
+                            <i class="far fa-user"></i> 个人信息
+                        </a>
+                        <a href="#" class="dropdown-item has-icon">
+                            <i class="fas fa-bolt"></i> 活动
+                        </a>
+                        <a href="#" class="dropdown-item has-icon">
+                            <i class="fas fa-cog"></i> 设置
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a th:href="@{/logout}" href="#" class="dropdown-item has-icon text-danger">
+                            <i class="fas fa-sign-out-alt"></i> 注销
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="main-sidebar sidebar-style-2">
+            <aside id="sidebar-wrapper">
+                <div class="sidebar-brand">
+                    <a href="#">小公司</a>
+                </div>
+                <div class="sidebar-brand sidebar-brand-sm">
+                    <a href="#">Hj</a>
+                </div>
+                <ul class="sidebar-menu">
+                    <li class="menu-header">系统中心</li>
+                    <li class="dropdown active">
+                        <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>系统</span></a>
+                        <ul class="dropdown-menu">
+                            <li class="active"><a class="nav-link"  href="bootstrap-alert.html">分类中心</a></li>
+                            <li><a class="nav-link"  href="bootstrap-alert.html">文章管理</a></li>
+                        </ul>
+                    </li>
+
+
+
+                </ul>
+            </aside>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <section class="section">
+                <div class="section-header">
+                    <h1>管理</h1>
+                    <div class="section-header-breadcrumb">
+                        <div class="breadcrumb-item"><a href="#" >管理</a></div>
+                        <div class="breadcrumb-item">管理</div>
+                    </div>
+                </div>
+
+                <div class="section-body">
+                    <h2 class="section-title">信息</h2>
+                    <!--<p class="section-lead">请慎重修改用户角色！</p>-->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>
+                                        <a class="btn btn-primary text-white" th:href="|/formItem/add/${formId}|">添加</a>
+                                    </h4>
+                                    <div class="card-header-form">
+                                        <form method="get" action="/plan/all">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="搜索" name="keyword">
+                                                <div class="input-group-btn">
+                                                    <button class="btn btn-primary" type="submit">
+                                                        <i class="fas fa-search"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="card-body p-0">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <tbody><tr>
+                                                <th>
+                                                    <div class="custom-checkbox custom-control">
+                                                        <input type="checkbox" data-checkboxes="mygroup" data-checkbox-role="dad" class="custom-control-input" id="checkbox-all">
+                                                        <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
+                                                    </div>
+                                                </th>
+                                                <th>名称</th>
+                                                <th>类型</th>
+                                                <th>可选项</th>
+                                                <th>操作</th>
+                                            </tr>
+                                            <tr th:each="formItem:${formItemList}">
+                                                <td class="p-0 text-center">
+                                                    <div class="custom-checkbox custom-control">
+                                                        <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-1">
+                                                        <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
+                                                    </div>
+                                                </td>
+                                                <td><input onblur="form_item.add_blur_name(this);"
+                                                           onclick="form_item.add_click_name(this);" th:value="${formItem?.name}" type="text" th:data-id="${formItem?.id}" class="form-control" name="name"></td>
+                                                <td>
+                                                    <select class="form-control" name="type" onchange="form_item.add_type(this);" th:data-id="${formItem?.id}">
+                                                        <option th:selected="${formItem?.type eq 'text'}" value="text">文本类型</option>
+                                                        <option th:selected="${formItem?.type eq 'password'}" value="password">密码文本</option>
+                                                        <option th:selected="${formItem?.type eq 'select'}" value="select">下拉框</option>
+                                                        <option th:selected="${formItem?.type eq 'radio'}" value="radio">单选</option>
+                                                        <option th:selected="${formItem?.type eq 'checkbox'}" value="checkbox">多选</option>
+                                                        <option th:selected="${formItem?.type eq 'date'}" value="date">时间文本</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-secondary">表单项</a>
+                                                    <a class="btn btn-secondary">Delete</a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="card-footer text-right">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-5 text-left">
+                                            <div class="dataTables_info" id="table-2_info" role="status" aria-live="polite">当前页 1/2 共 2 页</div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-7">
+                                            <nav class="d-inline-block">
+                                                <ul class="pagination mb-0">
+                                                    <li class="page-item disabled" >
+                                                        <a class="page-link" href="#" tabindex="-1" >
+                                                            <i class="fas fa-chevron-left"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="#">1</a>
+                                                    </li>
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="#">
+                                                            <i class="fas fa-chevron-right"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+
+ <div class="modal fade" tabindex="-1" role="dialog" id="exampleModal-category">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">表单添加</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="needs-validation" novalidate="" method="post" id="category-form">
+                <input type="hidden" name="id" id="id">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>名称</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="名称" name="name" required>
+                            <div class="invalid-feedback" id="text">
+                                请填写名称
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer bg-whitesmoke br">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary" onclick="form_js.form_add(this);">添加</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="../static/dist/modules/jquery.min.js" th:src="@{/dist/modules/jquery.min.js}"></script>
+<script src="../static/dist/modules/popper.js" th:src="@{/dist/modules/popper.js}"></script>
+<script src="../static/dist/modules/tooltip.js" th:src="@{/dist/modules/tooltip.js}"></script>
+<script src="../static/dist/modules/bootstrap/js/bootstrap.min.js" th:src="@{/dist/modules/bootstrap/js/bootstrap.min.js}"></script>
+<script src="../static/dist/modules/nicescroll/jquery.nicescroll.min.js" th:src="@{/dist/modules/nicescroll/jquery.nicescroll.min.js}"></script>
+<script src="../static/dist/modules/moment.min.js" th:src="@{/dist/modules/moment.min.js}"></script>
+<script src="../static/dist/js/stisla.js" th:src="@{/dist/js/stisla.js}"></script>
+<script src="../static/dist/js/scripts.js" th:src="@{/dist/js/scripts.js}"></script>
+<script src="../static/dist/js/custom.js" th:src="@{/dist/js/custom.js}"></script>
+<script src="../static/dist/js/page/bootstrap-modal.js" th:src="@{/dist/js/page/bootstrap-modal.js}"></script>
+<script src="../static/dist/modules/upload-preview/assets/js/jquery.uploadPreview.min.js" th:src="@{/dist/modules/upload-preview/assets/js/jquery.uploadPreview.min.js}"></script>
+<script src="../static/dist/modules/sweetalert/sweetalert.min.js" th:src="@{/dist/modules/sweetalert/sweetalert.min.js}"></script>
+<script src="../static/js/jstree.min.js" th:src="@{/js/jstree.min.js}"></script>
+<script src="../static/js/ajax.js" th:src="@{/js/ajax.js}"></script>
+<script src="../static/js/api.js" th:src="@{/js/api.js}"></script>
+<script src="../static/js/category.js" th:src="@{/js/form_item.js}"></script>
+
+</html>

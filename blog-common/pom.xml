@@ -59,6 +59,11 @@
             <version>2.9.0</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.vladmihalcea</groupId>
+            <artifactId>hibernate-types-52</artifactId>
+            <version>2.3.5</version>
+        </dependency>
     </dependencies>
 
     <build>
