@@ -242,6 +242,49 @@
                                 </div>
                                 <div class="card-body p-0">
                                     <div class="table-responsive">
+                                        <table class="table table-striped" id="sortable-table">
+                                            <thead>
+                                            <tr>
+                                                <th class="text-center">
+                                                    <i class="fas fa-th"></i>
+                                                </th>
+                                                <th>名称</th>
+                                                <th>类型</th>
+                                                <th>可选项</th>
+                                                <th>操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody class="ui-sortable">
+                                            <tr th:each="formItem:${formItemList}">
+                                                <td>
+                                                    <div class="sort-handler ui-sortable-handle">
+                                                        <i class="fas fa-th"></i>
+                                                    </div>
+                                                </td>
+                                                <td hidden="hidden" class="ids" th:text="${formItem?.id}"></td>
+                                                <td><input onblur="form_item.add_blur_name(this);"
+                                                           onclick="form_item.add_click_name(this);" th:value="${formItem?.name}" type="text" th:data-id="${formItem?.id}" class="form-control" name="name"></td>
+                                                <td>
+                                                    <select class="form-control" name="type" onchange="form_item.add_type(this);" th:data-id="${formItem?.id}">
+                                                        <option th:selected="${formItem?.type eq 'text'}" value="text">文本类型</option>
+                                                        <option th:selected="${formItem?.type eq 'password'}" value="password">密码文本</option>
+                                                        <option th:selected="${formItem?.type eq 'select'}" value="select">下拉框</option>
+                                                        <option th:selected="${formItem?.type eq 'radio'}" value="radio">单选</option>
+                                                        <option th:selected="${formItem?.type eq 'checkbox'}" value="checkbox">多选</option>
+                                                        <option th:selected="${formItem?.type eq 'date'}" value="date">时间文本</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-secondary">表单项</a>
+                                                    <a class="btn btn-secondary">Delete</a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!--<div class="card-body p-0">
+                                    <div class="table-responsive">
                                         <table class="table table-striped">
                                             <tbody><tr>
                                                 <th>
@@ -282,7 +325,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
+                                </div>-->
                                 <div class="card-footer text-right">
                                     <div class="row">
                                         <div class="col-sm-12 col-md-5 text-left">
@@ -308,7 +351,6 @@
                                             </nav>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -354,6 +396,9 @@
 
 </body>
 <script src="../static/dist/modules/jquery.min.js" th:src="@{/dist/modules/jquery.min.js}"></script>
+<script src="../static/js/ajax.js" th:src="@{/js/ajax.js}"></script>
+<script src="../static/js/api.js" th:src="@{/js/api.js}"></script>
+<script src="../static/js/category.js" th:src="@{/js/form_item.js}"></script>
 <script src="../static/dist/modules/popper.js" th:src="@{/dist/modules/popper.js}"></script>
 <script src="../static/dist/modules/tooltip.js" th:src="@{/dist/modules/tooltip.js}"></script>
 <script src="../static/dist/modules/bootstrap/js/bootstrap.min.js" th:src="@{/dist/modules/bootstrap/js/bootstrap.min.js}"></script>
@@ -366,8 +411,9 @@
 <script src="../static/dist/modules/upload-preview/assets/js/jquery.uploadPreview.min.js" th:src="@{/dist/modules/upload-preview/assets/js/jquery.uploadPreview.min.js}"></script>
 <script src="../static/dist/modules/sweetalert/sweetalert.min.js" th:src="@{/dist/modules/sweetalert/sweetalert.min.js}"></script>
 <script src="../static/js/jstree.min.js" th:src="@{/js/jstree.min.js}"></script>
-<script src="../static/js/ajax.js" th:src="@{/js/ajax.js}"></script>
-<script src="../static/js/api.js" th:src="@{/js/api.js}"></script>
-<script src="../static/js/category.js" th:src="@{/js/form_item.js}"></script>
+
+<script src="../dist/modules/jquery-ui/jquery-ui.min.js" th:src="@{/dist/modules/jquery-ui/jquery-ui.min.js}"></script>
+<script src="../static/js/" th:src="@{/dist/js/page/components-table.js}"></script>
+
 
 </html>

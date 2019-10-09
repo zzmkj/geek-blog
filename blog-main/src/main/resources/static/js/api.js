@@ -16,6 +16,10 @@ const api = {
     form_item_type(type, id) {
         let url = "/formItem/type/" + id + "/" + type;
         return ajax(url, "GET");
+    },
+    form_item_sort(sortArr) {
+        let url = "/formItem/sort?ids=" + sortArr;
+        return ajax(url, "GET");
     }
 };
 

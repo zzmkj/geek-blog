@@ -39,6 +39,8 @@ public class FormItem {
     @Column(columnDefinition = "json")
     private List<String> result; //结果
 
+    private Integer sort;
+
     @ManyToOne
     @JoinColumn(name = "pid")
     private Form form;

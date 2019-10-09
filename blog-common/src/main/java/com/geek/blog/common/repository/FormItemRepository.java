@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * @ClassName FormItemRepository
  * @Description
@@ -15,5 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Repository
 public interface FormItemRepository extends JpaRepository<FormItem, String> {
+
+    List<FormItem> findByFormIdOrderBySortAsc(String formid);
 
 }

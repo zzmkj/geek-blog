@@ -28,6 +28,26 @@ $("[data-checkboxes]").each(function() {
   });
 });
 
+var updown = function (e, ui) {
+  let flag = 1;
+  let item = ui.item.parent().children();
+  let ids = item.find("td.ids");
+  let idsarr = [];
+  let sort = [];
+  for (let i = 0 ; i < ids.length; i ++){
+      let idsval = $(ids[i]).text();
+      idsarr.push(idsval);
+      sort.push(flag);
+      flag++;
+  }
+    api.form_item_sort(idsarr.join(",")).then(
+        mes => {
+            alert("success");
+        }
+    );
+};
+
 $("#sortable-table tbody").sortable({
-  handle: '.sort-handler'
+  handle: '.sort-handler',
+    stop: updown
 });

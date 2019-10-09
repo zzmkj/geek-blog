@@ -49,4 +49,8 @@ public class FormItemService {
         return formItem;
     }
 
+    public List<FormItem> findFormid(String formid) {
+        return formItemRepository.findByFormIdOrderBySortAsc(formid);
+    }
+
 }

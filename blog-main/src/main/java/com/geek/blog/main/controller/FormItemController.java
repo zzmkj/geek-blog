@@ -8,12 +8,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 /**
  * @ClassName FormItemController
@@ -37,7 +35,7 @@ public class FormItemController {
     public String find(@PathVariable String id,
                        Model model) {
         model.addAttribute("formId", id);
-        List<FormItem> formItemList = formItemService.findAll();
+        List<FormItem> formItemList = formItemService.findFormid(id);
         model.addAttribute("formItemList", formItemList);
         return "admin_formItem";
     }
@@ -66,6 +64,32 @@ public class FormItemController {
         FormItem formItem = formItemService.findById(id);
         formItem.setType(type);
         formItemService.save(formItem);
+        return "success";
+    }
+
+    @GetMapping("/sort")
+    @ResponseBody
+    public String sort(@RequestParam List<String> ids){
+        /*for (int i =0; i < ids.size() ; i ++){
+            String id = ids.get(i);
+            FormItem formItem = formItemService.findById(id);
+            formItem.setSort(i);
+            formItemService.save(formItem);
+        }*/
+        int[] flag = {1};
+        IntStream.range(0, ids.size()).forEachOrdered(i -> {
+            String id = ids.get(i);
+            FormItem formItem = formItemService.findById(id);
+            formItem.setSort(flag[0]);
+            flag[0]++;
+            formItemService.save(formItem);
+        });
+       /* ids.stream().forEachOrdered((id) -> */
+       /*     {*/
+       /*         FormItem formItem = formItemService.findById(id);*/
+       /*         formItem*/
+       /*     }*/
+       /* );*/
         return "success";
     }
 }
