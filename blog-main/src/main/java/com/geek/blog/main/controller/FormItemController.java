@@ -92,4 +92,15 @@ public class FormItemController {
        /* );*/
         return "success";
     }
+
+    @PostMapping("/saveOption")
+    public String addOption(@RequestParam String formItemid, @RequestParam List<String> option) {
+        log.info("formItem:{},option:{}", formItemid, option);
+        FormItem formItem = formItemService.findById(formItemid);
+        formItem.setOption(option);
+        formItemService.save(formItem);
+
+        return "redirect:/formItem/" + formItem.getForm().getId();
+    }
+
 }

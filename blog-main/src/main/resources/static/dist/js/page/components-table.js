@@ -51,3 +51,10 @@ $("#sortable-table tbody").sortable({
   handle: '.sort-handler',
     stop: updown
 });
+/*
+$("#sortable-option tbody").sortable({
+    handle: '.sort-handler'
+});*/
+$("#sortable-option tbody").sortable({
+    handle: '.sort-handler'
+});

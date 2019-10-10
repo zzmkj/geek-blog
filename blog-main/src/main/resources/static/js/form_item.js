@@ -30,5 +30,36 @@ var form_item = {
                 alert("修改失败");
             }
         );
+    },
+    add_option(a){
+        let last = $(a).parent().find("tr:last");
+        let id = $(last).data("id");
+        let upid=id+1;
+        let html=`<tr id="option${upid}" data-id="${upid}">
+                        <td>
+                            <div class="sort-handler ui-sortable-handle">
+                                <i class="fas fa-th"></i>
+                            </div>
+                        </td>
+
+                        <td ><input type="text" class="form-control" name="option"></td>
+
+                        <td>
+                            <button type="button" onclick="form_item.delete_option(this);" class="btn btn-secondary">Delete</button>
+                        </td>
+                    </tr>`
+        if (id == 0) {
+            $("#option0").after(html);
+        }else{
+            $(`#option${id}`).after(html);
+        }
+    },
+    delete_option(a){
+        $(a).parent().parent().remove()
+    },
+    click_option(a){
+        let id = $(a).data("id");
+        let html=`<td hidden><input type="text" class="form-control" name="formItemid" value="${id}"></td>`
+        $("#option0").after(html);
     }
 }
