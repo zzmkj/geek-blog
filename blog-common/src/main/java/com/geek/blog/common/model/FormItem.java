@@ -45,4 +45,8 @@ public class FormItem {
     @JoinColumn(name = "pid")
     private Form form;
 
+    private String fid; // 模板id
+
+    private String keyvalue;
+
 }

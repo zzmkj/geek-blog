@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <span>模板表单</span>
+    <ul>
+        <li th:if="${form?.pid eq null}" th:each="form:${formList}"><a th:href="|@{/formItem/}${form?.id}/formItem|">[[${form?.name}]]</a></li>
+    </ul>
+</div>
+
+<span>-----------------------------------------</span>
+
+<div>
+    <span>用户提交的表单</span>
+    <ul>
+        <li th:unless="${#strings.isEmpty(form?.pid)}" th:each="form:${formList}"><a th:href="|@{/formItem/}${form?.id}/formItem|">[[${form?.name}]] --- [[${form?.userid}]]</a></li>
+    </ul>
+</div>
+
+</body>
+</html>

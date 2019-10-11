@@ -5,6 +5,7 @@ import com.geek.blog.common.model.FormItem;
 import com.geek.blog.common.service.FormItemService;
 import com.geek.blog.common.service.FormService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -99,8 +100,21 @@ public class FormItemController {
         FormItem formItem = formItemService.findById(formItemid);
         formItem.setOption(option);
         formItemService.save(formItem);
-
         return "redirect:/formItem/" + formItem.getForm().getId();
+    }
+
+    @GetMapping("/{formid}/formItem")
+    public String formItem(@PathVariable String formid, Model model) {
+        Form form = formService.findById(formid);
+        if (StringUtils.isNotBlank(form.getPid())) {
+            model.addAttribute("flag", true);
+        }else {
+            model.addAttribute("flag", false);
+        }
+        List<FormItem> formItemList = formItemService.findFormid(formid);
+        model.addAttribute("formItemList", formItemList);
+        model.addAttribute("formid", formid);
+        return "index_form_item";
     }
 
 }

@@ -28,8 +28,8 @@ public class FormService {
     public void save(Form form) {
         if (StringUtils.isBlank(form.getId())) {
             form.setId(IDUtil.uuid());
-            formRepository.save(form);
         }
+        formRepository.save(form);
     }
 
     //删除

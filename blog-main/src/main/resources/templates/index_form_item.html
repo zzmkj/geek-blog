@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span>------------------------用户提交----------------------------</span>
+<form action="/form/user" method="post">
+    <input type="text" name="formid" th:value="${formid}" hidden="hidden">
+    <div th:each="formItem,formItemStat:${formItemList}" th:if="${#lists.isEmpty(formItem.result)}">
+        <label>[[${formItem?.name}]]</label>
+        <div th:if="${formItem?.type eq 'text'}" >[[${formItemStat.count}]]
+            <input hidden="hidden" type="text" th:value="${formItem?.id}" name="textFormItemid">
+            <input type="text" name="textFormItemResult">
+        </div>
+        <div th:if="${formItem?.type eq 'password'}">
+            <input hidden="hidden" type="text" th:value="${formItem?.id}" name="textFormItemid">
+            <input type="password" name="textFormItemResult">
+        </div>
+        <div th:if="${formItem?.type eq 'select'}">
+            <select name="#">
+                <option>---请选择---</option>
+                <option th:each="option:${formItem?.option}" th:text="${option}" th:value="${option}"></option>
+            </select>
+        </div>
+        <div th:if="${formItem?.type eq 'radio'}">
+            <div th:each="option:${formItem?.option}">
+                <label for="radio">[[${option}]]</label>
+                <input type="radio" id="radio" name="radio">
+            </div>
+        </div>
+        <div th:if="${formItem?.type eq 'checkbox'}">
+            <div th:each="option:${formItem?.option}">
+                <label for="checkbox">[[${option}]]</label>
+                <input type="checkbox" id="checkbox" name="checkbox">
+            </div>
+        </div>
+        <div th:if="${formItem?.type eq 'date'}">
+            <input hidden="hidden" type="text" th:value="${formItem?.id}" name="textFormItemid">
+            <input type="date" name="textFormItemResult">
+        </div>
+    </div>
+    <button type="submit">提交</button>
+</form>
+
+<span>------------------------已用户提交----------------------------</span>
+<div>
+    <div th:each="formItem:${formItemList}" th:unless="${#lists.isEmpty(formItem.result)}">
+        <label>问题：[[${formItem?.name}]]---结果：[[${formItem?.result}]]</label>
+    </div>
+</div>
+
+</body>
+</html>

@@ -30,4 +30,8 @@ public class Form {
 
     @OneToMany(mappedBy = "form", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     List<FormItem> formItems;
+
+    private String pid;
+
+    private String userid;
 }
